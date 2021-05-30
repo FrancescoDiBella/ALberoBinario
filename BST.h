@@ -1,8 +1,6 @@
-#ifndef ALBERBINARIO_BST_H
-#define ALBERBINARIO_BST_H
-
+#pragma once
 #include "Nodo.h"
-#include <iostream>
+
 
 template <class T>
 class BST{
@@ -11,6 +9,9 @@ private:
     Nodo<T>* root;
 //Inorder privata
     void inorder(Nodo<T>* x);
+//Metodo che permette di cambiare il sotto albero e quindi facilitare la Delete(), u è il nodo da eliminare e v è il nodo da sostituire
+    void Trapianta(Nodo<T>* u, Nodo<T>* v);
+
 public:
 // Costruttore che permette di inizializzare la root del BST
     BST(T x); 
@@ -25,8 +26,12 @@ public:
     void Insert(T x); 
     //Metodo che permette di inserire un nuovo elemento nell'albero passando direttamente un nodo
     void Insert(Nodo<T>* x); 
-    //Metodo di stampa inOrder
+    //Metodo di stampa inorder
     void inorder();
+    //Metodo che ricerca un nodo attraverso la sua chiave, se non è presente restituisce un puntatore null
+    Nodo<T>* Search(T x) const;
+    //Metodo che elimina un nodo passando il valore della chiave
+    void Delete(T x);
+    //Metodo che elimina un nodo passando il puntatore a tale nodo
+    void Delete(Nodo<T>* x);
 };
-
-#endif

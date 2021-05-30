@@ -1,5 +1,4 @@
-#ifndef ALBERBINARIO_NODO_H
-#define ALBERBINARIO_NODO_H
+#pragma once
 
 template <class T>
 class Nodo{
@@ -35,5 +34,3 @@ class Nodo{
          //Metodo getter di padre, restituisce un puntatore a tipo Nodo<T>
         Nodo<T>* getPadre() const;
 };
-
-#endif

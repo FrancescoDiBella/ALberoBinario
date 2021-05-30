@@ -7,6 +7,9 @@ BST<T>::BST(T x){
 }
 
 template <class T> 
+BST<T>::~BST(){}
+
+template <class T> 
 BST<T>::BST(){
     root = NULL;
 }
@@ -52,7 +55,7 @@ void BST<T>::Insert(Nodo<T>* l){
     }
 
     Nodo<T>* x = this->getRoot(); //Nodo Iteratore
-    Nodo<T>* y = NULL;//NOdo risultato
+    Nodo<T>* y = NULL;//Nodo risultato
 
     //il ciclo while determina il padre del nuovo nodo
     while(x!=NULL){
@@ -85,4 +88,41 @@ void BST<T>::inorder(Nodo<T>* x){
     }
 }
 
+template <class T>
+void BST<T>::Trapianta(Nodo<T>* u, Nodo<T>* v){
+    
+    if(v->getPadre() == NULL) 
+        this->setRoot(v);
+    else if(u == u->getPadre()->getLeft()) 
+        u->getPadre()->setLeft(v);
+    else u->getPadre()->setRight(v);
+
+    if(v!=NULL) v->setPadre(u->getPadre());
+}
+
+template <class T>
+Nodo<T>* BST<T>::Search(T x) const{
+    if(this->getRoot()->getKey() == x) return this->getRoot();
+
+    Nodo<T>* iter = this->getRoot();
+
+    while(iter->getKey() != x){
+       if(iter->getKey() < x) iter = iter->getRight();
+       else iter = iter->getLeft();
+    }
+
+    if(iter->getKey() == x) return iter;
+
+    return NULL;
+}
+
+template <class T>
+void BST<T>::Delete(T x){
+
+}
+
+template <class T>
+void BST<T>::Delete(Nodo<T>* x){
+
+}
 

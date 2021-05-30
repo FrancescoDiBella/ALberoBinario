@@ -1,4 +1,5 @@
 #include "Nodo.h"
+#include <iostream>
 
 template <class T>
 Nodo<T>::Nodo(T x) : key(x), left(nullptr), right(nullptr), padre(nullptr) {;}
