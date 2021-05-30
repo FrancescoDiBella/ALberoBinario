@@ -26,7 +26,7 @@ class Nodo{
         void setPadre(Nodo<T>* x);
 
         //Metodo getter di Key, restituisce un oggetto di tipo T
-        T getKey() const ;
+        T getKey() const;
          //Metodo getter di left, restituisce un puntatore a tipo Nodo<T>
         Nodo<T>* getLeft() const;
          //Metodo getter di right, restituisce un puntatore a tipo Nodo<T>

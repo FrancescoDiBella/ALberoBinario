@@ -1,4 +1,5 @@
 #include "BST.h"
+#include "Nodo.h"
 #include <iostream> 
 
 template <class T> 
@@ -27,7 +28,6 @@ void BST<T>::setRoot(Nodo<T>* x){
 template <class T> 
 //Ogni nuovo nodo aggiunto è sempre una fogla ----> left & right == NULL
 void BST<T>::Insert(T l){
-
     Nodo<T>* nuovo = new Nodo<T>(l);//Nodo da aggiungere
     Nodo<T>* x = this->getRoot(); //Nodo Iteratore
     Nodo<T>* y = NULL;//NOdo risultato
@@ -35,10 +35,9 @@ void BST<T>::Insert(T l){
     //il ciclo while determina il padre del nuovo nodo
     while(x!=NULL){
         y = x;
-        if( l <= x->getKey() ) x = x->getRight();
-        else x = x->getLeft();
+        if( l <= x->getKey() ) x = x->getLeft();
+        else x = x->getRight();
     }
-
     //settato il padre
     nuovo->setPadre(y);
     //settare nuovo come figlio destro o sinistro di y
@@ -73,17 +72,19 @@ void BST<T>::Insert(Nodo<T>* l){
 }
 
 template <class T>
-void BST<T>::inorder(){
+void BST<T>::Inorder(){
     Nodo<T>* x = this->getRoot();
+    std::cout << "Nodi dell'albero, visita inorder : [ ";
     inorder(root);
+    std::cout << "]" <<std::endl;
 }
 
 
 template <class T>
 void BST<T>::inorder(Nodo<T>* x){
-    if(x){
+    if(x!=NULL){
         inorder(x->getLeft());
-        std::cout << x->getKey();
+        std::cout << x->getKey() << " ";
         inorder(x->getRight());
     }
 }
@@ -106,14 +107,12 @@ Nodo<T>* BST<T>::Search(T x) const{
 
     Nodo<T>* iter = this->getRoot();
 
-    while(iter->getKey() != x){
+    while(iter!=NULL  && iter->getKey() != x){
        if(iter->getKey() < x) iter = iter->getRight();
        else iter = iter->getLeft();
     }
 
-    if(iter->getKey() == x) return iter;
-
-    return NULL;
+    return iter;
 }
 
 template <class T>

@@ -27,7 +27,7 @@ public:
     //Metodo che permette di inserire un nuovo elemento nell'albero passando direttamente un nodo
     void Insert(Nodo<T>* x); 
     //Metodo di stampa inorder
-    void inorder();
+    void Inorder();
     //Metodo che ricerca un nodo attraverso la sua chiave, se non è presente restituisce un puntatore null
     Nodo<T>* Search(T x) const;
     //Metodo che elimina un nodo passando il valore della chiave
