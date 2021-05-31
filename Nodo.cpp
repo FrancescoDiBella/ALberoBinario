@@ -2,7 +2,11 @@
 #include <iostream>
 
 template <class T>
-Nodo<T>::Nodo(T x) : key(x), left(nullptr), right(nullptr), padre(nullptr) {;}
+Nodo<T>::Nodo(T x) : key(x), left(NULL), right(NULL), padre(NULL) {;}
+
+template <class T>
+Nodo<T>::Nodo() : left(NULL), right(NULL), padre(NULL) {;}
+
 
 template <class T>
 Nodo<T>::~Nodo(){;}

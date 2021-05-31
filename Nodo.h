@@ -15,6 +15,7 @@ class Nodo{
     public:
         //Costruttore del Nodo, prende come argomento un oggetto di tipo Generico T
         Nodo(T x);
+        Nodo();
         ~Nodo();
         //Metodo setter per Key, prende come argomento un oggetto di tipo T
         void setKey(T x);

@@ -5,6 +5,7 @@
 #include <iostream>
 using namespace std;
 
+
 int main(){
     BST<int>* p = new BST<int> ;
     p->Insert(5);
@@ -16,11 +17,16 @@ int main(){
     p->Insert(3);
 
     p->Inorder();
-    Nodo<int>* x = p->Search(22);
-    cout << x->getKey() ;
+    Nodo<int>* xx  = p->Search(7);
+    p->Delete(xx);
+    p->Delete(0);
+    p->Delete(10);
+    p->Delete(5);
+    cout << p->getRoot()->getKey() ;
+    p->Inorder();
+
     delete p;
 
 
-    
     return 0;
 }
